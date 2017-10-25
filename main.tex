@@ -117,10 +117,10 @@
     \progressbar@tmpcountb=\inserttotalframenumber
     \progressbar@tmpdim=\progressbar@pbwidth
     %
+    % muda no caso de Arithmetic Overflow
     %
-    %
-    \divide\progressbar@tmpcounta  by 2
-    \divide\progressbar@tmpcountb  by 2
+    \divide\progressbar@tmpcounta  by 4
+    \divide\progressbar@tmpcountb  by 4
     \multiply\progressbar@tmpdim by \progressbar@tmpcounta
     \divide\progressbar@tmpdim by \progressbar@tmpcountb
     \begin{tikzpicture}
