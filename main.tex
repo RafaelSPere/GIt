@@ -1,0 +1,403 @@
+\documentclass[dvipsnames,unknownkeysallowed,10pt,brazil]{beamer}
+%
+%
+%  Para configurar, procure por ``muda''
+%
+%
+\usepackage{babel}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{3d,arrows,babel,calc,angles,quotes,patterns}
+\usepackage{pgf}
+\usepackage{pgffor}
+\usepackage{cancel}
+\usepackage{amsmath}
+\usepackage{wasysym}
+%\usepackage{marvosym}
+\usepackage{tikzsymbols}
+\usepackage{graphicx}
+%\usepackage{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{enumerate}
+\usepackage{multimedia}
+\usepackage{listings} 
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{zi4}
+\usepackage{fontawesome}
+\usepackage{fancyvrb}
+\usepackage[utf8]{inputenc}
+\usepackage{systeme,mathtools}
+%\usepackage[eulergreek,italic,defaultmathsizes]{mathastext}
+
+
+\graphicspath{{./} {./figures/}}
+% set text colors for different objects
+\colorlet{grey}{white!65!black}
+% \colorlet{base}{orange!80!black}
+\colorlet{mat}{Plum}
+%
+% muda
+%
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{base}{RGB}{78,15,92}
+\definecolor{fundo}{RGB}{133,52,150}
+\definecolor{giz}{rgb}{0.85,0.85,0.85}
+
+\setbeamercolor{frametitle}{bg=base,fg=white}
+\setbeamercolor{framesubtitle}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=black}
+\setbeamercolor{math text}{fg=base}
+\setbeamercolor{math text displayed}{fg=mat}
+\setbeamercolor{math text inlined}{fg=mat}
+\setbeamercolor{item projected}{bg=base}
+\setbeamertemplate{enumerate items}[default]
+\setbeamercolor{local structure}{fg=base}
+\everymath{\color{base}}
+
+%% set fonts
+%\usefonttheme{professionalfonts}
+\usepackage[sfdefault,lf]{FiraSans}
+\setbeamerfont{frametitle}{size=\Large,series=\firasemibold,shape=\scshape}
+\setbeamerfont{framesubtitle}{shape=\scshape}
+\setbeamerfont{title}{size=\Huge,series=\firasemibold}
+\setbeamerfont{author}{size=\Large,series=\bfseries}
+\setbeamerfont{date}{size=\large}
+\setbeamerfont{institute}{size=\large,series=\firasemibold}
+\newcommand\ttblue[1]{\textcolor{Plum}{\texttt{#1}}}
+%\usepackage[sfdefault,lf]{carlito} %% option 'sfdefault' activates Clear Sans as the default text font
+%\usepackage{newtxsfs}
+\usepackage{mathpazo}
+%\usepackage[charter]{mathdesign}
+
+
+
+%% blocks
+\setbeamercolor{block title}{fg=white,bg=base}
+\setbeamercolor{block body}{bg=black!12}
+\setbeamerfont{block title}{size=\small,series=\bfseries,shape=\scshape}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor*{block title example}{fg=white,bg=base}
+\setbeamercolor*{block body example}{fg=red!20!black,bg=base!10!white}
+\setbeamercolor*{block title alerted}{fg=white,bg=base!80!white}
+\setbeamercolor*{block body alerted}{fg=black,bg=black!10!white}
+
+\setbeamertemplate{title page}{}
+\newcounter{showProgressBar}
+\setcounter{showProgressBar}{1}
+\newcounter{showSlideNumbers}
+\setcounter{showSlideNumbers}{1}
+\newcounter{showSlideTotal}
+\setcounter{showSlideTotal}{1}
+\makeatletter
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbwidth %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+% make the progress bar go across the screen
+\progressbar@pbwidth=12.8cm
+\setbeamertemplate{background}{
+    % deal with progress bar stuff
+    % (calculate where it should go)
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwidth
+    %
+    %
+    %
+    \divide\progressbar@tmpcounta  by 2
+    \divide\progressbar@tmpcountb  by 2
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+    \begin{tikzpicture}
+    % set up the entire slide as the canvas
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    %	
+    \fill[color=white] (0,0) rectangle(12.8cm,9.6cm);
+    \ifnum\thepage=1\relax
+    %		% the title page
+    %		% draw the fills
+    %\fill[color=base] (0, 5cm) rectangle(12.8cm, 9.6cm);
+    
+    %
+    % muda 
+    % 
+    \node[anchor=north west] at (-0.13cm,10cm){\includegraphics[
+    	% width=\paperwidth,
+    	height=1.05\paperheight
+    	]{light}};
+    
+    %\fill[color=base](0.4,7.8cm) rectangle(9cm, 7.15cm);    
+    %\fill[color=base](1.3cm,4.2cm) rectangle(5.5cm,3.8cm);
+    %\fill[color=base](1.1cm,3.2cm) rectangle(6.3cm,2.8cm);
+    %
+    % muda
+    % 
+    %%		
+    \node[anchor=north east] at (12.8cm,9.6cm){\includegraphics[height=11mm]{logoicexbrancosharp}};
+    \node[anchor=north west] at (.2cm,9.6cm){\includegraphics[height=11mm]{logoUFF}};
+    %%		% draw the actual text
+    \node[anchor=south,text width=11.8cm,inner xsep=0.5cm] at (6.8cm,6cm) {\color{white}{\Huge\firaheavy{\inserttitle}}};
+    \node[anchor=north east,text width=11.8cm, align=center] at (9.5cm,6cm) {\color{white}\Large\insertsubtitle};
+    \node at (3.4cm,4cm) {\color{white}\LARGE\textsc{\firasemibold\insertauthor}};
+    \node at (3.4cm,3cm) {\color{white}\large\firalight\insertinstitute};
+    
+    %		
+    %		% add the date in the corner
+    \node[anchor=south east] at(12.8cm,0cm) {\color{base}\tiny\insertdate};	
+    \else
+    %	
+    %	% the background
+    \fill[color=white] (0,0) rectangle(12.8cm,9.6cm);
+    % separate the drawing based on if we're the first (title) slide or not
+    % not the title page
+    % title bar
+    %\fill[color=base] (0, 8.6cm) rectangle(12.8cm,9.6cm);
+    % swap the comment on these to add section titles to slide titles
+    %\node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{white}\Large\textbf{\insertsectionhead: \insertframetitle}};
+    %\node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{white}\huge\textbf{\insertframetitle}};
+    % if we're showing a progress bar, show it
+    % (I disable the progress bar and slide numbers for the "Appendix" slides)
+    \ifnum \value{showProgressBar}>0\relax%
+    % the the progress bar icon in the middle of the screen
+    %\draw[fill=grey,draw=none] (0cm,0.25cm) rectangle(12.8cm
+    %,0.23cm);
+    \draw[fill=base,draw=none] (0cm,0.27cm) rectangle(\progressbar@tmpdim,0.26cm);
+    
+    % bottom information
+    \node[anchor=south west] at(0cm,-0.1cm) {\color{base}\tiny\textbf{\insertsection}\;  \insertsubsectionhead};
+    % if slide numbers are active
+    \ifnum \value{showSlideNumbers}>0\relax%
+    % if slide totals are active
+    \ifnum \value{showSlideTotal}>0\relax%
+    % draw both slide number and slide total
+    \node[anchor=south east] at(12.8cm,-0.10cm) {\color{black}\tiny\insertframenumber/\inserttotalframenumber
+    	%\inserttotalframenumber
+    	};
+    \else
+    % slide totals aren't active, don't draw them
+    \node[anchor=south east] at(12.8cm,0.25cm) {\color{grey}\tiny\insertframenumber};
+    \fi
+    \fi			
+    % don't show the progress bar?
+    \else
+    % section title in the bottom left
+    \node[anchor=south west] at(0cm,0cm) {\color{grey}\tiny\insertsection};
+    % if we're showing slide numbers
+    \ifnum \value{showSlideNumbers}>0\relax%
+    % if slide totals are active
+    \ifnum \value{showSlideTotal}>0\relax%
+    % draw both slide number and slide total
+    \node[anchor=south east] at(12.8cm,0cm) {\color{grey}\tiny\insertframenumber/\inserttotalframenumber};
+    \else
+    % slide totals aren't active, don't draw them
+    \node[anchor=south east] at(12.8cm,0cm) {\color{grey}\tiny\insertframenumber};
+    \fi
+    \fi
+    \fi			
+    \fi
+    \end{tikzpicture}
+}
+\makeatother			
+
+%% use a small dash ('-') for a bulletpoint list
+%\setbeamertemplate{itemize %item}{\usebeamercolor[fg]{item}\small\ECFAugie{*}}
+
+%%% Frametitle
+\setbeamertemplate{frametitle}{
+    \nointerlineskip
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.8cm,dp=0ex]{frametitle}
+        \usebeamerfont{frametitle}
+        \strut\insertframetitle\strut \hfill \\
+        %\raisebox{-1mm}{\includegraphics[height=0.6cm]{logoicexbranco}}\\  
+    \end{beamercolorbox}
+}
+
+%% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\AtBeginSection[]
+%{ 
+%	\begin{frame}{Sumário}
+%	\small{\tableofcontents[currentsection,currentsubsection]}
+%	\end{frame}
+%} 
+
+\AtBeginSection{\frame[noframenumbering]{\sectionpage}}
+\setbeamertemplate{section page}
+{
+	\sloppy
+	\transboxout
+    \begin{tikzpicture}
+    % set up the entire slide as the canvas
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    %\fill[color=white] (-1cm, 1cm) rectangle(11.8cm, 9.8cm);
+    \fill[color=base] (-1cm, 0cm) rectangle(11.8cm, 9.8cm);
+    \node[text width=11cm,align=center] at (5.4cm, 4.9cm) {\color{white}\Huge\textbf{\insertsection}};
+    \end{tikzpicture}
+}
+
+\AtBeginSubsection{\frame[noframenumbering]{\subsectionpage}}
+\setbeamertemplate{subsection page}
+{   \transboxout
+	\begin{tikzpicture}
+	% set up the entire slide as the canvas
+	\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+	%\fill[color=white] (-1cm, 1cm) rectangle(11.8cm, 9.8cm);
+	\fill[color=base] (-1cm, 0cm) rectangle(11.8cm, 9.8cm);
+	\node[text width=11.8cm,align=center] at (5.4cm, 4.9cm) {\color{white}\Huge\textbf{\insertsubsection}};
+	\end{tikzpicture}
+}
+
+
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamercolor{block body}{bg=black!8}
+\DeclareMathOperator{\sen}{sen}
+\newcommand{\ddt}[2]{\ensuremath\dfrac{d#1}{d#2}}
+\newcommand{\ddtp}[2]{\ensuremath\frac{\partial #1}{\partial #2}}
+\newcommand{\titulo}[1]{\textbf{\Large\textsc{\color{base}#1}}}
+
+%
+%   Dados do curso
+% muda
+\title{Git: mantendo versões}
+\subtitle{e sua sanidade mental}
+\author{Thadeu Penna}
+\date{\today}
+\institute{thadeupenna@id.uff.br}
+\pgfplotsset{compat=1.12}
+
+
+
+\sisetup{output-decimal-marker = {,}}
+\newcommand{\meio}{\nicefrac{1}{2}}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{7} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{7}  % for normal
+
+\newcommand\pythonstyle{\lstset{
+		language=Python,
+		basicstyle=\scriptsize,
+		otherkeywords={typeof, null, catch, switch, in, int, str, float, self},
+		ndkeywords={boolean, throw, import},
+		ndkeywords={return, class, if ,elif, endif, while, do, else, True, False ,  catch, def},
+		ndkeywordstyle=\color{BrickRed},
+		identifierstyle=\color{deepblue},
+		sensitive=false,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\color{deepgreen},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		commentstyle=\color{red},
+		tabsize=4,
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+}}
+	
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+	
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+	
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{1,1,1}
+
+\lstdefinestyle{cstyle}{
+	backgroundcolor=\color{backgroundColour},   
+	commentstyle=\color{mGreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{mGray},
+	stringstyle=\color{mPurple}\ttfamily,
+%    basicstyle=\ttfamily,
+%    keywordstyle=\color{blue},
+%    stringstyle=\color{red},
+%    commentstyle=\color{green},
+%    morecomment=[l][\color{magenta}]{\#}
+	basicstyle=\small\ttfamily,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,  
+	numberstyle=\tiny,                  
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	language=C
+}
+
+
+
+\newcommand{\nocanto}{\vspace{-0.13cm}\hspace*{-1.2cm}}
+
+\newenvironment{terminal}[1]{
+\noindent  \renewcommand\arraystretch{0.85}
+\begin{alertblock}{\hfill #1 \hfill -\;+\;x}
+}{
+\end{alertblock}}
+
+\setbeamertemplate{itemize item}{
+	%\MVRightarrow
+	\faArrowRight
+	%\raise-2pt\hbox{\includegraphics[height=0.4cm]{right.jpg}}
+	}
+
+\lstset{
+	literate={ö}{{\"o}}1
+	{ô}{{\^o}}1
+	{ü}{{\"u}}1
+}
+
+\begin{document}
+\tikzstyle{every picture}+=[remember picture]
+
+	\begin{frame}
+		\transfade
+		\titlepage
+	\end{frame}
+
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+\end{array}\right)
+}
+
+\begin{frame}{Sumário}
+\tableofcontents
+\end{frame}
+\input{git.tex}
+\end{document}

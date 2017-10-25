@@ -1,0 +1,14 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {brazil}
+\beamer@sectionintoc {1}{Motiva\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Li\IeC {\c c}\IeC {\~a}o 1:\penalty -\@M Debugar \IeC {\'e} ruim.\penalty -\@M Testar \IeC {\'e} legal.}{7}{0}{1}
+\beamer@subsectionintoc {1}{2}{An\IeC {\'a}lise de um chute}{11}{0}{1}
+\beamer@sectionintoc {2}{Git Yourself:\penalty -\@M Git do Eu Sozinho}{14}{0}{2}
+\beamer@subsectionintoc {2}{1}{Diff e Patch}{16}{0}{2}
+\beamer@subsectionintoc {2}{2}{VCS}{20}{0}{2}
+\beamer@subsectionintoc {2}{3}{Git na Pr\IeC {\'a}tica}{24}{0}{2}
+\beamer@subsectionintoc {2}{4}{Modificando o C\IeC {\'o}digo e Salvando as Vers\IeC {\~o}es}{26}{0}{2}
+\beamer@subsectionintoc {2}{5}{Resumo}{40}{0}{2}
+\beamer@subsectionintoc {2}{6}{Branches}{42}{0}{2}
+\beamer@sectionintoc {3}{GitHub\penalty -\@M Eu e voc\IeC {\^e}, a dois, a tr\IeC {\^e}s, escancarando de vez }{55}{0}{3}
+\beamer@subsectionintoc {3}{1}{Criando Forks}{66}{0}{3}

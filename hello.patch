@@ -1,0 +1,9 @@
+--- hello.c	2017-10-23 18:33:35.945704069 -0200
++++ hello2.c	2017-10-23 18:33:59.881753109 -0200
+@@ -1,5 +1,5 @@
+ #include <stdio.h>
+ 
+ int main() {
+-   printf("Hello, world!\n");	
++   printf("Alô, mundo!\n");	
+ }

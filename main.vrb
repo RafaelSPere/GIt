@@ -1,0 +1,9 @@
+\frametitle{Comandos Úteis}
+\begin{description}
+		\item[\color{red}\ttblue{ git log --oneline --decorate --all --graph}] colore a saída do git log.
+		\item[\ttblue{ git tag -d v1.0}] Apaga a tag.
+		\item[\ttblue{ git push -{}-tags} ] Faz o upload das tags
+		\item[\ttblue{ git remote show origin}] Informações sobre o repositório remoto.
+		\item[\ttblue{ git fetch URL }] Pega os arquivos que ainda não foram atualizados mas não realiza um merge com o que você tem. Você deve fazer o merge manualmente.
+        \item[\ttblue{git config --global credential.helper 'cache --timeout=3600'}] Não pergunta senha e usuário por uma hora .
+\end{description}
